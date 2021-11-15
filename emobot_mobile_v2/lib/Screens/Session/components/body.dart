@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:emobot_mobile_v2/constants.dart';
+import 'package:emobot_mobile_v2/Screens/Session/components/background.dart';
 
 class Session extends StatefulWidget {
   @override
@@ -9,167 +12,92 @@ class Session extends StatefulWidget {
 class _SessionState extends State<Session> {
   @override
   Widget build(BuildContext context) {
-    //to get size
-    var size = MediaQuery.of(context).size;
-
-    //style
-    var cardTextStyle = TextStyle(
-      fontFamily: 'Montserrat Regular',
-      fontSize: 14,
-      color: Color.fromRGBO(63, 63, 63, 1),
-    );
-
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: size.height * .33,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  alignment: Alignment.topCenter,
-                  image: AssetImage('assets/images/top_header.png')),
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 64,
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundImage: NetworkImage(
-                              'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Steve Francis',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat Medium',
-                                  color: Colors.white,
-                                  fontSize: 20),
-                            ),
-                            Text(
-                              '21-0999-123',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat Medium',
-                                  color: Colors.white,
-                                  fontSize: 14),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: GridView.count(
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 10,
-                        primary: false,
-                        children: <Widget>[
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 1',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 2',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 3',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 4',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 5',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Box 6',
-                                  style: cardTextStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                        crossAxisCount: 2),
-                  ),
-                ],
+      appBar: AppBar(
+        title: Text('Session Menu'),
+        backgroundColor: kPrimaryColor,
+      ),
+      backgroundColor: kPrimaryLightColor,
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('JOHN DOE',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+              accountEmail: Text('johndoe@email.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'),
               ),
+              decoration: BoxDecoration(color: kPrimaryColor),
             ),
-          ),
-        ],
+            ListTile(
+              leading: Icon(Icons.person_rounded),
+              title: Text('Profile'),
+            ),
+            ListTile(
+              leading: Icon(Icons.vpn_key_rounded),
+              title: Text('Settings'),
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app_rounded),
+              title: Text('Logout'),
+            ),
+          ],
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              alignment: Alignment.topLeft,
+              image: AssetImage('assets/images/main_top.png')),
+        ),
+        padding: EdgeInsets.all(30),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: <Widget>[
+            Option(
+                title: 'Question 1',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 2',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 3',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 4',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 5',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 6',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 7',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 8',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 9',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+            Option(
+                title: 'Question 10',
+                icon: Icons.question_answer_rounded,
+                color: kPrimaryColor),
+          ],
+        ),
       ),
     );
   }
