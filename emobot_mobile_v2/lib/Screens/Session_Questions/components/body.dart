@@ -1,24 +1,27 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
 import 'package:emobot_mobile_v2/constants.dart';
-import 'package:emobot_mobile_v2/Screens/Session/components/background.dart';
+import 'package:emobot_mobile_v2/components/question_cards.dart';
+//import 'package:emobot_mobile_v2/components/nav_drawer.dart';
+//import 'package:emobot_mobile_v2/Screens/Session_Questions/components/background.dart';
 
-class Session extends StatefulWidget {
+class Body extends StatefulWidget {
   @override
-  _SessionState createState() => _SessionState();
+  _BodyState createState() => _BodyState();
 }
 
-class _SessionState extends State<Session> {
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Session Menu'),
-        backgroundColor: kPrimaryColor,
-      ),
       backgroundColor: kPrimaryLightColor,
-      drawer: Drawer(
+      /*appBar: AppBar(
+        // ignore: prefer_const_constructors
+        title: Text('Session'),
+        backgroundColor: kPrimaryColor,
+      ),*/
+      /*drawer: Drawer(
         child: ListView(
           children: <Widget>[
             UserAccountsDrawerHeader(
@@ -34,18 +37,38 @@ class _SessionState extends State<Session> {
             ListTile(
               leading: Icon(Icons.person_rounded),
               title: Text('Profile'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AccountScreen()));
+              },
             ),
             ListTile(
-              leading: Icon(Icons.vpn_key_rounded),
+              leading: Icon(Icons.add_chart_rounded),
+              title: Text('Session'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => QuestionScreen()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
               title: Text('Settings'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AccountScreen()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app_rounded),
               title: Text('Logout'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WelcomeScreen()));
+              },
             ),
           ],
         ),
-      ),
+      ),*/
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -56,43 +79,43 @@ class _SessionState extends State<Session> {
         child: GridView.count(
           crossAxisCount: 2,
           children: <Widget>[
-            Option(
+            QuestionCard(
                 title: 'Question 1',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 2',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 3',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 4',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 5',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 6',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 7',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 8',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 9',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),
-            Option(
+            QuestionCard(
                 title: 'Question 10',
                 icon: Icons.question_answer_rounded,
                 color: kPrimaryColor),

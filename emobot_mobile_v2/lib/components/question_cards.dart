@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:emobot_mobile_v2/constants.dart';
 
-class Option extends StatelessWidget {
-  Option({required this.title, required this.icon, required this.color});
+class QuestionCard extends StatelessWidget {
+  QuestionCard({required this.title, required this.icon, required this.color});
 
   final String title;
   final IconData icon;
