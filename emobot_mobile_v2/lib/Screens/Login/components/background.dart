@@ -15,7 +15,7 @@ class Background extends StatelessWidget {
       width: double.infinity,
       height: size.height,
       child: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.topLeft,
         children: <Widget>[
           Positioned(
             child: Image.asset("assets/images/main_top.png",

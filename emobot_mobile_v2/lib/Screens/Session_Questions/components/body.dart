@@ -16,65 +16,17 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
-      /*appBar: AppBar(
-        // ignore: prefer_const_constructors
-        title: Text('Session'),
-        backgroundColor: kPrimaryColor,
-      ),*/
-      /*drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text('JOHN DOE',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-              accountEmail: Text('johndoe@email.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'),
-              ),
-              decoration: BoxDecoration(color: kPrimaryColor),
-            ),
-            ListTile(
-              leading: Icon(Icons.person_rounded),
-              title: Text('Profile'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AccountScreen()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.add_chart_rounded),
-              title: Text('Session'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => QuestionScreen()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AccountScreen()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app_rounded),
-              title: Text('Logout'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WelcomeScreen()));
-              },
-            ),
-          ],
-        ),
-      ),*/
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
               alignment: Alignment.topLeft,
               image: AssetImage('assets/images/main_top.png')),
         ),
+        /*foregroundDecoration: BoxDecoration(
+          image: DecorationImage(
+              alignment: Alignment.bottomRight,
+              image: AssetImage('assets/images/login_bottom.png')),
+        ),*/
         padding: EdgeInsets.all(30),
         child: GridView.count(
           crossAxisCount: 2,

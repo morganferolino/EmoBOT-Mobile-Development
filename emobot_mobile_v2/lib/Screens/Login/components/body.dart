@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:emobot_mobile_v2/Screens/Accounts/accounts_screen.dart';
+//import 'package:emobot_mobile_v2/Screens/Accounts/accounts_screen.dart';
+import 'package:emobot_mobile_v2/Screens/Session_Intro/session_start.dart';
 import 'package:emobot_mobile_v2/Screens/Login/components/background.dart';
 import 'package:emobot_mobile_v2/components/existing_account_check.dart';
 import 'package:emobot_mobile_v2/components/rounded_button.dart';
@@ -27,7 +30,7 @@ class Body extends StatelessWidget {
         backgroundColor: kPrimaryColor,
       );
     } else {
-      var url = "http://192.168.254.101/emobotDb/login.php";
+      var url = "http://192.168.56.1/emobotDb/login.php";
       var response = await http.post(Uri.parse(url), body: {
         "username": username.text,
         "password": password.text,
@@ -36,8 +39,8 @@ class Body extends StatelessWidget {
       try {
         var data = json.decode(response.body);
         if (data == "Success") {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => AccountScreen()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => StartPage()));
         } else {
           Fluttertoast.showToast(
             msg: "The username or password doesn't exist.",

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:emobot_mobile_v2/constants.dart';
+import 'package:emobot_mobile_v2/Screens/Session_Timer/session_timer.dart';
 
 class QuestionCard extends StatelessWidget {
   QuestionCard({required this.title, required this.icon, required this.color});
@@ -17,7 +18,10 @@ class QuestionCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       elevation: 4,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => TimerScreen()));
+        },
         splashColor: kPrimaryColor,
         child: Center(
           child: Column(

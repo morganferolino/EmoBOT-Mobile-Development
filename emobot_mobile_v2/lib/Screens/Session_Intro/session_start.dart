@@ -6,10 +6,12 @@ void main() => runApp(const StartPage());
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       //resizeToAvoidBottomInset: false,
+      debugShowCheckedModeBanner: false,
       home: Body(),
     );
   }
